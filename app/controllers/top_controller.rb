@@ -7,8 +7,9 @@ class TopController < ApplicationController
         end
     end
         
-        def login
-            if params[:uid] == 'kindai' and params[:pass] == 'sanriko'
+        def login 
+            if 
+                BCrypt::Password.new("$2a$12$/G357gwHokYXVQglvWlLuO.4yQe2fQ2os0eHCDJQH24CoxtJGdzwe") == params[:pass]
                 session[:login_uid] = params[:uid]
                 redirect_to root_path
             else
